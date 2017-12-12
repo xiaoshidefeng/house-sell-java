@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.chenwe.houseselljava.mapper.HouseMapper" >
+
+    <insert id="save" parameterType="top.chenwe.houseselljava.domain.House">
+        insert into house(house_id,house_name,user_id,house_prices,house_sell,house_address,house_size,house_desc)
+        values(#{house_id},#{house_name},#{user_id},#{house_price},#{house_sell},#{house_address},#{house_size},#{house_desc})
+    </insert>
+
+    <delete id="delete" parameterType="top.chenwe.houseselljava.domain.House">
+        DELETE FROM house WHERE id=#{id}
+    </delete>
+
+    <update id="update" parameterType="top.chenwe.houseselljava.domain.House">
+        UPDATE house set house_name=#{name} WHERE house_id=#{id}
+    </update>
+
+    <select id="findAll" resultType="top.chenwe.houseselljava.domain.House">
+        select * from house
+    </select>
+
+</mapper>

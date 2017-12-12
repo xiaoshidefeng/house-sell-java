@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.chenwe.houseselljava.mapper.OrderMapper" >
+
+    <insert id="save" parameterType="top.chenwe.houseselljava.domain.Order">
+        
+    </insert>
+
+    <delete id="delete" parameterType="top.chenwe.houseselljava.domain.Order">
+
+    </delete>
+
+    <update id="update" parameterType="top.chenwe.houseselljava.domain.Order">
+    </update>
+
+    <select id="findAll" resultType="top.chenwe.houseselljava.domain.Order">
+        select * from users
+    </select>
+
+</mapper>
