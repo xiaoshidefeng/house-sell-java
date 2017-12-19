@@ -12,7 +12,9 @@ public interface HouseMapper {
 
     void delete(int id);
 
-    void update();
+    void update(House house);
 
     List<House> findAll();
+
+    List<House> findByUserId();
 }

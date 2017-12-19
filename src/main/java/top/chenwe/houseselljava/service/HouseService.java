@@ -1,7 +1,18 @@
 package top.chenwe.houseselljava.service;
 
-import org.springframework.stereotype.Service;
+import top.chenwe.houseselljava.domain.House;
+import top.chenwe.houseselljava.utils.Result.Result;
 
-@Service
+
+
 public interface HouseService {
+    Result getHouseList();
+
+    Result addHouse(House house);
+
+    Result deleteHouse(int id);
+
+    Result updateHouse(House house);
+
+    Result findUserHouse(int id);
 }

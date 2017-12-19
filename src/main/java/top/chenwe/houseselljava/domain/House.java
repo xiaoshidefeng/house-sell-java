@@ -18,6 +18,31 @@ public class House {
 
     private String house_desc;
 
+    public House(int house_id, String house_name, int user_id, float house_prices, Boolean house_sell, String house_address, String house_size, String house_desc) {
+        this.house_id = house_id;
+        this.house_name = house_name;
+        this.user_id = user_id;
+        this.house_prices = house_prices;
+        this.house_sell = house_sell;
+        this.house_address = house_address;
+        this.house_size = house_size;
+        this.house_desc = house_desc;
+    }
+
+    public House(String house_name, int user_id, float house_prices, Boolean house_sell, String house_address, String house_size, String house_desc) {
+        this.house_name = house_name;
+        this.user_id = user_id;
+        this.house_prices = house_prices;
+        this.house_sell = house_sell;
+        this.house_address = house_address;
+        this.house_size = house_size;
+        this.house_desc = house_desc;
+    }
+
+    public House() {
+
+    }
+
     public int getHouse_id() {
         return house_id;
     }

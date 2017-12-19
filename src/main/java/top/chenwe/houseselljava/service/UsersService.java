@@ -1,7 +1,11 @@
 package top.chenwe.houseselljava.service;
 
-import org.springframework.stereotype.Service;
+import top.chenwe.houseselljava.domain.Users;
+import top.chenwe.houseselljava.utils.Result.Result;
 
-@Service
 public interface UsersService {
+    Result login(Users users);
+
+    Result register(Users users);
+
 }
