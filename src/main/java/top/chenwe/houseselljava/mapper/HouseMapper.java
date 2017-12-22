@@ -1,6 +1,7 @@
 package top.chenwe.houseselljava.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import top.chenwe.houseselljava.domain.House;
 
 import java.util.List;
@@ -16,5 +17,6 @@ public interface HouseMapper {
 
     List<House> findAll();
 
-    List<House> findByUserId();
+    List<House> findByUserId(int id);
+
 }

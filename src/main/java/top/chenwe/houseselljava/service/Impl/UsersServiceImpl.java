@@ -31,7 +31,7 @@ public class UsersServiceImpl implements UsersService {
         String token = CodeUtil.generateToken(user.getUser_name());
         user.setToken(token);
         usersMapper.saveToken(token, user.getUser_id());
-        return ResultUtil.success(token);
+        return ResultUtil.success(user);
     }
 
     @Override

@@ -29,10 +29,11 @@
         SELECT *
         FROM house
     </select>
-    
+
     <select id="findByUserId" resultType="top.chenwe.houseselljava.domain.House">
-        select *
-        from house WHERE user_id = #{user_id};
+        SELECT *
+        FROM house
+        WHERE user_id = #{id};
     </select>
 
 </mapper>

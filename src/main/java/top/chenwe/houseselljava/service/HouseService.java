@@ -15,4 +15,5 @@ public interface HouseService {
     Result updateHouse(House house);
 
     Result findUserHouse(int id);
+
 }

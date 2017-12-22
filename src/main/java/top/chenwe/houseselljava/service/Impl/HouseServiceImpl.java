@@ -38,6 +38,7 @@ public class HouseServiceImpl implements HouseService {
 
     @Override
     public Result findUserHouse(int id) {
-        return ResultUtil.success(houseMapper.findByUserId());
+        return ResultUtil.success(houseMapper.findByUserId(id));
     }
+
 }

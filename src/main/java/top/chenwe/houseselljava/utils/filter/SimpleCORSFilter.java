@@ -24,11 +24,12 @@ public class SimpleCORSFilter implements javax.servlet.Filter {
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
         response.setHeader("Access-Control-Max-Age", "3600");
-        response.setHeader("Access-Control-Allow-Headers", "x-requested-wit, Content-Type");
+        response.setHeader("Access-Control-Allow-Headers", "x-requested-wit");
         filterChain.doFilter(servletRequest, servletResponse);
     }
 
     @Override
+
     public void destroy() {
 
     }

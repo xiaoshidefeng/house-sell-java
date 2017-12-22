@@ -2,6 +2,7 @@ package top.chenwe.houseselljava.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.chenwe.houseselljava.service.Impl.HouseServiceImpl;
@@ -15,8 +16,14 @@ public class HouseController {
     @Autowired
     HouseServiceImpl houseService;
 
-    @GetMapping("houselist")
+    @GetMapping("/houselist")
     public Result getHouseList() {
         return houseService.getHouseList();
     }
+
+    @GetMapping("/userhouse/{id}")
+    public Result getUserHouseList(@PathVariable("id") int id) {
+        return houseService.findUserHouse(id);
+    }
+
 }

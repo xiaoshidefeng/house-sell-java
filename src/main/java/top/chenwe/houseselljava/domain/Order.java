@@ -52,5 +52,14 @@ public class Order {
 
     private Boolean order_complete;
 
+    public Order() {
+    }
 
+    public Order(int order_id, int user_id, int house_id, String creat_time, Boolean order_complete) {
+        this.order_id = order_id;
+        this.user_id = user_id;
+        this.house_id = house_id;
+        this.creat_time = creat_time;
+        this.order_complete = order_complete;
+    }
 }
