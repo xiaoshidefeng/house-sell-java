@@ -34,4 +34,5 @@ public class IsNull {
         }
         return false;
     }
+
 }

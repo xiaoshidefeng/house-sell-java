@@ -19,4 +19,8 @@ public interface HouseMapper {
 
     List<House> findByUserId(int id);
 
+    List<House> findHouseByHouseName(@Param("name") String name);
+
+    House findHouseByHouseId(@Param("id") int id);
+
 }

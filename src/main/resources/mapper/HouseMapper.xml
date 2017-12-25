@@ -36,4 +36,16 @@
         WHERE user_id = #{id};
     </select>
 
+    <select id="findHouseByHouseName" resultType="top.chenwe.houseselljava.domain.House">
+        SELECT *
+        FROM house
+        WHERE house_name LIKE '%${name}%';
+    </select>
+
+    <select id="findHouseByHouseId" resultType="top.chenwe.houseselljava.domain.House">
+        SELECT *
+        FROM house
+        WHERE house_id = #{id};
+    </select>
+
 </mapper>

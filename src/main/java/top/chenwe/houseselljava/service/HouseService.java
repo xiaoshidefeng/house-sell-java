@@ -16,4 +16,8 @@ public interface HouseService {
 
     Result findUserHouse(int id);
 
+    Result findByHouseName(String name);
+
+    Result findByHouseId(int id);
+
 }
