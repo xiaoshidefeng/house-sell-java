@@ -1,5 +1,6 @@
 package top.chenwe.houseselljava.controller;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import top.chenwe.houseselljava.domain.Order;
@@ -52,6 +53,16 @@ public class OrderController {
     @PostMapping("/payHouse")
     public Result payHouse(@Valid Order order) {
         return orderService.payHouse(order);
+    }
+
+    @PostMapping("/deleteOrder")
+    public Result delOrder(@RequestParam("order_id") int id) {
+        return orderService.deleteOrder(id);
+    }
+
+    @PostMapping("/updateOrder")
+    public Result updateOrder(@Valid Order order) {
+        return orderService.updateOrder(order);
     }
 
 }

@@ -14,10 +14,16 @@
     </delete>
 
     <update id="update" parameterType="top.chenwe.houseselljava.domain.Order">
+        UPDATE orders SET
+            order_complete  = #{orders.order_complete},
+            house_price = #{orders.house_price},
+            creat_time    = #{orders.creat_time}
+        WHERE order_id = #{orders.order_id}
     </update>
 
     <select id="findAll" resultType="top.chenwe.houseselljava.domain.Order">
         select * from orders
+        ORDER BY creat_time DESC
     </select>
 
     <select id="findOrderByUserId" resultType="top.chenwe.houseselljava.domain.Order">

@@ -12,7 +12,7 @@ public interface OrderMapper {
 
     void save(@Param("order") Order order);
 
-    void update();
+    void update(@Param("orders") Order orders);
 
     void delete(@Param("id") int id);
 

@@ -42,7 +42,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Result updateOrder(Order order) {
-        return null;
+        orderMapper.update(order);
+        return ResultUtil.success();
     }
 
     @Override
