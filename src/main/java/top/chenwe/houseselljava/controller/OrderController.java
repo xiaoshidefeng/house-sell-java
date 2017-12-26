@@ -24,15 +24,15 @@ public class OrderController {
         return orderService.getAll();
     }
 
-//    /**
-//     * 获取用户订单
-//     * @param id
-//     * @return
-//     */
-//    @PostMapping("/user_orders")
-//    private Result getUserOrderByUserId(@RequestParam("user_id") int id) {
-//        return orderService.getUserOrderByUserId(id);
-//    }
+    /**
+     * 获取用户订单
+     * @param id
+     * @return
+     */
+    @GetMapping("/user_orders/{id}")
+    public Result getUserOrderByUserId(@PathVariable("id") int id) {
+        return orderService.getUserOrderByUserId(id);
+    }
 
     /**
      * 获取用户订单
@@ -48,4 +48,10 @@ public class OrderController {
     public Result rentHouse(@Valid Order order) {
         return orderService.saveOrder(order);
     }
+
+    @PostMapping("/payHouse")
+    public Result payHouse(@Valid Order order) {
+        return orderService.payHouse(order);
+    }
+
 }

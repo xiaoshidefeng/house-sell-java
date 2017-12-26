@@ -3,6 +3,7 @@ package top.chenwe.houseselljava.service.Impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.chenwe.houseselljava.domain.House;
+import top.chenwe.houseselljava.domain.Users;
 import top.chenwe.houseselljava.mapper.HouseMapper;
 import top.chenwe.houseselljava.service.HouseService;
 import top.chenwe.houseselljava.utils.Enums.ResultEnums;
@@ -25,6 +26,15 @@ public class HouseServiceImpl implements HouseService {
 
     @Override
     public Result addHouse(House house) {
+        if (house == null) {
+            return ResultUtil.error(ResultEnums.INPUT_NULL);
+        }
+        if (IsNull.isNullField(house.getHouse_address(), house.getHouse_desc(), house.getHouse_name())) {
+            return ResultUtil.error(ResultEnums.INPUT_NULL);
+        }
+        if (IsNull.isNullField(house.getHouse_size())) {
+            return ResultUtil.error(ResultEnums.INPUT_NULL);
+        }
         houseMapper.save(house);
         return ResultUtil.success();
     }
@@ -66,6 +76,11 @@ public class HouseServiceImpl implements HouseService {
         }
 
         return ResultUtil.success(house);
+    }
+
+    @Override
+    public Result findHouseBySell() {
+        return ResultUtil.success(houseMapper.findHouseBySell());
     }
 
 

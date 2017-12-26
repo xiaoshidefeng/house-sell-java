@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface HouseMapper {
 
-    int save(House house);
+    int save(@Param("house") House house);
 
     void delete(int id);
 
@@ -23,4 +23,7 @@ public interface HouseMapper {
 
     House findHouseByHouseId(@Param("id") int id);
 
+    void updateHouseUser(@Param("user_id") int user_id, @Param("house_id") int house_id);
+
+    List<House> findHouseBySell();
 }

@@ -23,4 +23,6 @@ public interface OrderService {
 
     Result getUserOrderByUserName(String name);
 
+    Result payHouse(Order order);
+
 }

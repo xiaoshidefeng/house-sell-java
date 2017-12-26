@@ -3,9 +3,9 @@
 <mapper namespace="top.chenwe.houseselljava.mapper.OrderMapper">
 
     <insert id="save" parameterType="top.chenwe.houseselljava.domain.Order">
-        INSERT INTO orders(user_id, house_id, creat_time,order_complete, house_name, user_name)
+        INSERT INTO orders(user_id, house_id, creat_time,order_complete, house_name, user_name, house_price)
         VALUES (#{order.user_id}, #{order.house_id},
-        #{order.creat_time},#{order.order_complete}, #{order.house_name}, #{order.user_name});
+        #{order.creat_time},#{order.order_complete}, #{order.house_name}, #{order.user_name}, #{order.house_price});
     </insert>
 
     <delete id="delete" parameterType="java.lang.Integer">
@@ -22,7 +22,7 @@
 
     <select id="findOrderByUserId" resultType="top.chenwe.houseselljava.domain.Order">
         SELECT * FROM  orders
-        WHERE user_id = #{user_id}
+        WHERE user_id = #{user_id} ORDER BY creat_time DESC
     </select>
 
     <select id="findOrderByUserUserName" resultType="top.chenwe.houseselljava.domain.Order"
@@ -31,4 +31,14 @@
         WHERE user_name = #{user_name}
     </select>
 
+    <select id="findOrderByUserIdAndHouseId" resultType="top.chenwe.houseselljava.domain.Order">
+        SELECT * FROM orders
+        WHERE user_id = #{user_id} AND house_id = #{house_id};
+    </select>
+
+    <select id="payOrderByUserIdAndHouseId" resultType="top.chenwe.houseselljava.domain.Order">
+        UPDATE orders SET
+        order_complete = #{complete}
+        WHERE user_id = #{user_id} AND house_id = #{house_id};
+    </select>
 </mapper>

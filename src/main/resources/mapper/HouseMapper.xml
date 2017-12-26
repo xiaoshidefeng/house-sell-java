@@ -3,9 +3,9 @@
 <mapper namespace="top.chenwe.houseselljava.mapper.HouseMapper">
 
     <insert id="save" parameterType="top.chenwe.houseselljava.domain.House">
-        INSERT INTO house (house_id, house_name, user_id, house_prices, house_sell, house_address, house_size, house_desc)
-        VALUES (#{house_id}, #{house_name}, #{user_id}, #{house_prices}, #{house_sell}, #{house_address}, #{house_size},
-                #{house_desc})
+        INSERT INTO house (house_name, user_id, house_prices, house_sell, house_address, house_size, house_desc)
+        VALUES ( #{house.house_name}, #{house.user_id}, #{house.house_prices}, #{house.house_sell}, #{house.house_address}, #{house.house_size},
+                #{house.house_desc})
     </insert>
 
     <delete id="delete" parameterType="top.chenwe.houseselljava.domain.House">
@@ -14,14 +14,12 @@
     </delete>
 
     <update id="update" parameterType="top.chenwe.houseselljava.domain.House">
-        UPDATE house
-        SET house_name    = #{house_name},
-            user_id       = #{user_id},
+        UPDATE house SET
             house_prices  = #{house_prices},
-            house_sell    = #{house_sell},
             house_address = #{house_address},
             house_size    = #{house_size},
-            house_desc    = #{house_desc}
+            house_desc    = #{house_desc},
+            house_sell    = #{house_sell}
         WHERE house_id = #{house_id}
     </update>
 
@@ -46,6 +44,19 @@
         SELECT *
         FROM house
         WHERE house_id = #{id};
+    </select>
+
+    <update id="updateHouseUser">
+        UPDATE house SET
+            user_id = #{user_id},
+            house_sell = FALSE
+        WHERE house_id = #{house_id};
+    </update>
+
+    <select id="findHouseBySell" resultType="top.chenwe.houseselljava.domain.House">
+        select *
+        from house
+        WHERE house_sell =TRUE ;
     </select>
 
 </mapper>

@@ -20,4 +20,6 @@ public interface HouseService {
 
     Result findByHouseId(int id);
 
+    Result findHouseBySell();
+
 }

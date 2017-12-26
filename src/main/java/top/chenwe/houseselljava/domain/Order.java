@@ -16,13 +16,16 @@ public class Order {
 
     private String user_name;
 
-    public Order(int user_id, int house_id, String creat_time, Boolean order_complete, String house_name, String user_name) {
+    private int house_price;
+
+    public Order(int user_id, int house_id, String creat_time, Boolean order_complete, String house_name, String user_name, int house_price) {
         this.user_id = user_id;
         this.house_id = house_id;
         this.creat_time = creat_time;
         this.order_complete = order_complete;
         this.house_name = house_name;
         this.user_name = user_name;
+        this.house_price = house_price;
     }
 
     public Order() {
@@ -82,5 +85,13 @@ public class Order {
 
     public void setUser_name(String user_name) {
         this.user_name = user_name;
+    }
+
+    public int getHouse_price() {
+        return house_price;
+    }
+
+    public void setHouse_price(int house_price) {
+        this.house_price = house_price;
     }
 }

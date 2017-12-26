@@ -22,7 +22,7 @@ public enum ResultEnums {
     NOT_INPUT_DORM_INFO(24, "未填写寝室信息"),
     NOT_CONFIRM_MAIL(26, "未验证邮箱"),
     FINDBACK_PASSWORD_FAIL(28, "找回密码失败"),
-    HOUSE_SELLED(30, "房子已出售");
+    HOUSE_SELLED(30, "房子未允许销售");
 
 
     private Integer code;

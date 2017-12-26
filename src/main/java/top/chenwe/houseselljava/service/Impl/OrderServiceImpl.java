@@ -28,7 +28,7 @@ public class OrderServiceImpl implements OrderService {
             return ResultUtil.error(ResultEnums.INPUT_NULL);
         }
         House house = houseMapper.findHouseByHouseId(order.getHouse_id());
-        if (house.getHouse_sell()) {
+        if (!house.getHouse_sell()) {
             return ResultUtil.error(ResultEnums.HOUSE_SELLED);
         }
         order.setCreat_time(TimeUtil.getTime());
@@ -65,5 +65,18 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Result getUserOrderByUserName(String name) {
         return ResultUtil.success(orderMapper.findOrderByUserUserName(name));
+    }
+
+    @Override
+    public Result payHouse(Order order) {
+        if (order == null) {
+            return ResultUtil.error(ResultEnums.INPUT_NULL);
+        }
+        int userId = order.getUser_id();
+        int houseId = order.getHouse_id();
+        houseMapper.updateHouseUser(userId, houseId);
+        orderMapper.payOrderByUserIdAndHouseId(true, userId, houseId);
+
+        return ResultUtil.success();
     }
 }

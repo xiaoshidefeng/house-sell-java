@@ -21,4 +21,8 @@ public interface OrderMapper {
     List<Order> findOrderByUserId(@Param("user_id") int user_id);
 
     List<Order> findOrderByUserUserName(@Param("user_name") String user_name);
+
+    Order findOrderByUserIdAndHouseId(@Param("user_id") int user_id, @Param("house_id") int house_id);
+
+    void payOrderByUserIdAndHouseId(@Param("complete") Boolean complete, @Param("user_id") int user_id, @Param("house_id") int house_id);
 }
