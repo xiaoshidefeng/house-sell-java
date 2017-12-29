@@ -3,7 +3,7 @@
 <mapper namespace="top.chenwe.houseselljava.mapper.UsersMapper">
 
     <insert id="save" parameterType="top.chenwe.houseselljava.domain.Users">
-        INSERT INTO users (user_name, password, admin, token)
+        INSERT INTO orders (user_name, password, admin, token)
         VALUES (#{user.user_name}, #{user.password}, #{user.admin}, #{user.token})
     </insert>
 
@@ -15,24 +15,24 @@
     </update>
 
     <select id="findAll" resultType="top.chenwe.houseselljava.domain.Users">
-        select * from users
+        select * from orders
     </select>
 
     <select id="login" resultType="top.chenwe.houseselljava.domain.Users" parameterType="java.lang.String">
-        SELECT * FROM users WHERE user_name = #{name} AND password = #{password}
+        SELECT * FROM orders WHERE user_name = #{name} AND password = #{password}
     </select>
 
     <update id="saveToken">
-        UPDATE users
+        UPDATE orders
         SET token = #{token}
         WHERE user_id = #{user_id}
     </update>
 
     <select id="findByUserName" resultType="top.chenwe.houseselljava.domain.Users">
-        SELECT * FROM users WHERE user_name = #{user_name}
+        SELECT * FROM orders WHERE user_name = #{user_name}
     </select>
 
     <select id="findUserIdByUserToken" resultType="java.lang.Integer">
-        SELECT user_id FROM  users WHERE token = #{token}
+        SELECT user_id FROM  orders WHERE token = #{token}
     </select>
 </mapper>
