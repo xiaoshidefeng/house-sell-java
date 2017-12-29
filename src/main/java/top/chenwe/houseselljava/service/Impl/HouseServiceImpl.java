@@ -47,6 +47,11 @@ public class HouseServiceImpl implements HouseService {
 
     @Override
     public Result updateHouse(House house) {
+//        if (house.getHouse_sell()) {
+//            house.setUser_id(0);
+//            houseMapper.updateAndUser(house);
+//            return ResultUtil.success();
+//        }
         houseMapper.update(house);
         return ResultUtil.success();
     }

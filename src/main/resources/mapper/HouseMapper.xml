@@ -22,6 +22,16 @@
             house_sell    = #{house_sell}
         WHERE house_id = #{house_id}
     </update>
+    <update id="updateAndUser" parameterType="top.chenwe.houseselljava.domain.House">
+        UPDATE house SET
+        house_prices  = #{house_prices},
+        house_address = #{house_address},
+        house_size    = #{house_size},
+        house_desc    = #{house_desc},
+        house_sell    = #{house_sell}
+        user_id    = #{user_id}
+        WHERE house_id = #{house_id}
+    </update>
 
     <select id="findAll" resultType="top.chenwe.houseselljava.domain.House">
         SELECT *

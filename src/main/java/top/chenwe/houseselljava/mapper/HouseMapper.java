@@ -26,4 +26,6 @@ public interface HouseMapper {
     void updateHouseUser(@Param("user_id") int user_id, @Param("house_id") int house_id);
 
     List<House> findHouseBySell();
+
+    void updateAndUser(House house);
 }
