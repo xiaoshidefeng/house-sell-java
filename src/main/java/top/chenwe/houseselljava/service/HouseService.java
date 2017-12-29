@@ -4,7 +4,6 @@ import top.chenwe.houseselljava.domain.House;
 import top.chenwe.houseselljava.utils.Result.Result;
 
 
-
 public interface HouseService {
     Result getHouseList();
 

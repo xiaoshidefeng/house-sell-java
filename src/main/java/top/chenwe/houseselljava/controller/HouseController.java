@@ -19,6 +19,7 @@ public class HouseController {
 
     /**
      * 获取房屋列表
+     *
      * @return
      */
     @GetMapping("/houselist")
@@ -30,8 +31,10 @@ public class HouseController {
     public Result getHouseListSell() {
         return houseService.findHouseBySell();
     }
+
     /**
      * 获取用户房屋列表
+     *
      * @param id
      * @return
      */
@@ -43,6 +46,7 @@ public class HouseController {
 
     /**
      * 通过模糊匹配房屋名称来获取房屋列表
+     *
      * @param name
      * @return
      */
