@@ -3,9 +3,9 @@
 <mapper namespace="top.chenwe.houseselljava.mapper.OrderMapper">
 
     <insert id="save" parameterType="top.chenwe.houseselljava.domain.Order">
-        INSERT INTO orders(user_id, house_id, creat_time,order_complete, house_name, user_name, house_price)
-        VALUES (#{order.user_id}, #{order.house_id},
-        #{order.creat_time},#{order.order_complete}, #{order.house_name}, #{order.user_name}, #{order.house_price});
+        INSERT INTO orders( house_id, user_id,creat_time,order_complete, house_name, user_name, house_price)
+        VALUES ( #{order.house_id}, #{order.user_id}, #{order.creat_time,jdbcType=VARCHAR},#{order.order_complete,jdbcType=CHAR},
+        #{order.house_name,jdbcType=VARCHAR}, #{order.user_name,jdbcType=VARCHAR}, #{order.house_price})
     </insert>
 
     <delete id="delete" parameterType="java.lang.Integer">
@@ -15,9 +15,9 @@
 
     <update id="update" parameterType="top.chenwe.houseselljava.domain.Order">
         UPDATE orders SET
-            order_complete  = #{orders.order_complete},
-            house_price = #{orders.house_price},
-            creat_time    = #{orders.creat_time}
+            order_complete  = #{orders.order_complete,jdbcType=CHAR},
+            house_price = #{orders.house_price,jdbcType=FLOAT},
+            creat_time    = #{orders.creat_time,jdbcType=VARCHAR}
         WHERE order_id = #{orders.order_id}
     </update>
 
@@ -34,17 +34,17 @@
     <select id="findOrderByUserUserName" resultType="top.chenwe.houseselljava.domain.Order"
             parameterType="java.lang.String">
         SELECT * FROM orders
-        WHERE user_name = #{user_name}
+        WHERE user_name = #{user_name,jdbcType=VARCHAR}
     </select>
 
     <select id="findOrderByUserIdAndHouseId" resultType="top.chenwe.houseselljava.domain.Order">
         SELECT * FROM orders
-        WHERE user_id = #{user_id} AND house_id = #{house_id};
+        WHERE user_id = #{user_id} AND house_id = #{house_id}
     </select>
 
     <select id="payOrderByUserIdAndHouseId" resultType="top.chenwe.houseselljava.domain.Order">
         UPDATE orders SET
-        order_complete = #{complete}
-        WHERE user_id = #{user_id} AND house_id = #{house_id};
+        order_complete = #{complete,jdbcType=CHAR}
+        WHERE user_id = #{user_id} AND house_id = #{house_id}
     </select>
 </mapper>

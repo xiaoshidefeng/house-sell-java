@@ -3,8 +3,8 @@
 <mapper namespace="top.chenwe.houseselljava.mapper.UsersMapper">
 
     <insert id="save" parameterType="top.chenwe.houseselljava.domain.Users">
-        INSERT INTO orders (user_name, password, admin, token)
-        VALUES (#{user.user_name}, #{user.password}, #{user.admin}, #{user.token})
+        INSERT INTO users (user_name, password, admin, token)
+        VALUES (#{user.user_name,jdbcType=VARCHAR}, #{user.password,jdbcType=VARCHAR}, #{user.admin,jdbcType=CHAR}, #{user.token,jdbcType=VARCHAR})
     </insert>
 
     <delete id="delete" parameterType="top.chenwe.houseselljava.domain.Users">
@@ -19,20 +19,20 @@
     </select>
 
     <select id="login" resultType="top.chenwe.houseselljava.domain.Users" parameterType="java.lang.String">
-        SELECT * FROM orders WHERE user_name = #{name} AND password = #{password}
+        SELECT * FROM users WHERE user_name = #{name,jdbcType=VARCHAR} AND password = #{password,jdbcType=VARCHAR}
     </select>
 
     <update id="saveToken">
-        UPDATE orders
-        SET token = #{token}
+        UPDATE users
+        SET token = #{token,jdbcType=VARCHAR}
         WHERE user_id = #{user_id}
     </update>
 
     <select id="findByUserName" resultType="top.chenwe.houseselljava.domain.Users">
-        SELECT * FROM orders WHERE user_name = #{user_name}
+        SELECT * FROM users WHERE user_name = #{user_name,jdbcType=VARCHAR}
     </select>
 
     <select id="findUserIdByUserToken" resultType="java.lang.Integer">
-        SELECT user_id FROM  orders WHERE token = #{token}
+        SELECT user_id FROM  users WHERE token = #{token}
     </select>
 </mapper>

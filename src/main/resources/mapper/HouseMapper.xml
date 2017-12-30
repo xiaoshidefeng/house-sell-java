@@ -4,8 +4,8 @@
 
     <insert id="save" parameterType="top.chenwe.houseselljava.domain.House">
         INSERT INTO house (house_name, user_id, house_prices, house_sell, house_address, house_size, house_desc)
-        VALUES ( #{house.house_name}, #{house.user_id}, #{house.house_prices}, #{house.house_sell}, #{house.house_address}, #{house.house_size},
-                #{house.house_desc})
+        VALUES ( #{house.house_name,jdbcType=VARCHAR}, #{house.user_id}, #{house.house_prices,jdbcType=FLOAT}, #{house.house_sell,jdbcType=CHAR}, #{house.house_address,jdbcType=VARCHAR}, #{house.house_size,jdbcType=VARCHAR},
+                #{house.house_desc,jdbcType=VARCHAR})
     </insert>
 
     <delete id="delete" parameterType="top.chenwe.houseselljava.domain.House">
@@ -15,20 +15,20 @@
 
     <update id="update" parameterType="top.chenwe.houseselljava.domain.House">
         UPDATE house SET
-            house_prices  = #{house_prices},
-            house_address = #{house_address},
-            house_size    = #{house_size},
-            house_desc    = #{house_desc},
-            house_sell    = #{house_sell}
+            house_prices  = #{house_prices,jdbcType=FLOAT},
+            house_address = #{house_address,jdbcType=VARCHAR},
+            house_size    = #{house_size,jdbcType=VARCHAR},
+            house_desc    = #{house_desc,jdbcType=VARCHAR},
+            house_sell    = #{house_sell,jdbcType=CHAR}
         WHERE house_id = #{house_id}
     </update>
     <update id="updateAndUser" parameterType="top.chenwe.houseselljava.domain.House">
         UPDATE house SET
-        house_prices  = #{house_prices},
-        house_address = #{house_address},
-        house_size    = #{house_size},
-        house_desc    = #{house_desc},
-        house_sell    = #{house_sell}
+        house_prices  = #{house_prices,jdbcType=FLOAT},
+        house_address = #{house_address,jdbcType=VARCHAR},
+        house_size    = #{house_size,jdbcType=VARCHAR},
+        house_desc    = #{house_desc,jdbcType=VARCHAR},
+        house_sell    = #{house_sell,jdbcType=CHAR},
         user_id    = #{user_id}
         WHERE house_id = #{house_id}
     </update>
@@ -41,32 +41,32 @@
     <select id="findByUserId" resultType="top.chenwe.houseselljava.domain.House">
         SELECT *
         FROM house
-        WHERE user_id = #{id};
+        WHERE user_id = #{id}
     </select>
 
     <select id="findHouseByHouseName" resultType="top.chenwe.houseselljava.domain.House">
         SELECT *
         FROM house
-        WHERE house_name LIKE '%${name}%';
+        WHERE house_name LIKE '%${name}%'
     </select>
 
     <select id="findHouseByHouseId" resultType="top.chenwe.houseselljava.domain.House">
         SELECT *
         FROM house
-        WHERE house_id = #{id};
+        WHERE house_id = #{id}
     </select>
 
     <update id="updateHouseUser">
         UPDATE house SET
             user_id = #{user_id},
-            house_sell = FALSE
-        WHERE house_id = #{house_id};
+            house_sell = '0'
+        WHERE house_id = #{house_id}
     </update>
 
     <select id="findHouseBySell" resultType="top.chenwe.houseselljava.domain.House">
         select *
         from house
-        WHERE house_sell =TRUE ;
+        WHERE house_sell = '1'
     </select>
 
 </mapper>

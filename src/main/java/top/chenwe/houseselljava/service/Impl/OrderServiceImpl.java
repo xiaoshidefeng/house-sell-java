@@ -31,6 +31,7 @@ public class OrderServiceImpl implements OrderService {
         if (!house.getHouse_sell()) {
             return ResultUtil.error(ResultEnums.HOUSE_SELLED);
         }
+
         order.setCreat_time(TimeUtil.getTime());
         order.setOrder_complete(false);
         orderMapper.save(order);
