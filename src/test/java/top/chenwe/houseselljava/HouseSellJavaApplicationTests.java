@@ -16,12 +16,12 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class HouseSellJavaApplicationTests {
-
-	@Autowired
-	private HouseServiceImpl houseService;
-
-	@Autowired
-	private UsersServiceImpl usersService;
+//
+//	@Autowired
+//	private HouseServiceImpl houseService;
+//
+//	@Autowired
+//	private UsersServiceImpl usersService;
 
 	@Test
 	public void houseServiceTest() {
@@ -44,17 +44,17 @@ public class HouseSellJavaApplicationTests {
 //				"6",
 //				"7"
 //		));
-		System.out.println(houseService.findUserHouse(2).toString());
+//		System.out.println(houseService.findUserHouse(2).toString());
 
 	}
 
-	@Test
-	public void userServiceTest() {
-//		System.out.println(usersService.login());
-//		usersService.login("aaa", "qqq");
-
-//		usersService.register(new Users("aaa", "qqq"));
-	}
+//	@Test
+//	public void userServiceTest() {
+////		System.out.println(usersService.login());
+////		usersService.login("aaa", "qqq");
+//
+////		usersService.register(new Users("aaa", "qqq"));
+//	}
 
 
 }
